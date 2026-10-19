@@ -1,0 +1,1339 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 76 and seed 4544238758433342191 with 8 workers on 16 cores with 2373MB heap and 5337MB offheap memory [pid: 23196] (Windows 10 10.0 amd64, AdoptOpenJDK 14.0.1 x86_64, OffHeapDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file C:\Users\20254333\OneDrive - TU Eindhoven\Desktop\Assignment\trash_bins.toolbox\model_multiple\MC.tla
+Parsing file C:\Users\20254333\OneDrive - TU Eindhoven\Desktop\Assignment\trash_bins.toolbox\model_multiple\trash_bins.tla
+Parsing file C:\Users\20254333\OneDrive - TU Eindhoven\Desktop\TLA\toolbox\plugins\org.lamport.tlatools_1.0.0.202408081326\tla2sany\StandardModules\TLC.tla
+Parsing file C:\Users\20254333\OneDrive - TU Eindhoven\Desktop\Assignment\trash_bins.toolbox\model_multiple\trash_multiple.tla
+Parsing file C:\Users\20254333\OneDrive - TU Eindhoven\Desktop\Assignment\trash_bins.toolbox\model_multiple\trash_data.tla
+Parsing file C:\Users\20254333\OneDrive - TU Eindhoven\Desktop\TLA\toolbox\plugins\org.lamport.tlatools_1.0.0.202408081326\tla2sany\StandardModules\Integers.tla
+Parsing file C:\Users\20254333\OneDrive - TU Eindhoven\Desktop\TLA\toolbox\plugins\org.lamport.tlatools_1.0.0.202408081326\tla2sany\StandardModules\Sequences.tla
+Parsing file C:\Users\20254333\OneDrive - TU Eindhoven\Desktop\TLA\toolbox\plugins\org.lamport.tlatools_1.0.0.202408081326\tla2sany\StandardModules\FiniteSets.tla
+Parsing file C:\Users\20254333\OneDrive - TU Eindhoven\Desktop\TLA\toolbox\plugins\org.lamport.tlatools_1.0.0.202408081326\tla2sany\StandardModules\Naturals.tla
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module trash_data
+Semantic processing of module trash_multiple
+Semantic processing of module trash_bins
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2026-10-20 01:31:00)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2212:0 @!@!@
+Implied-temporal checking--satisfiability problem has 6 branches.
+@!@!@ENDMSG 2212 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 1 distinct state generated at 2026-10-20 01:31:00.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2192:0 @!@!@
+Checking 6 branches of temporal properties for the current state space with 142664 total distinct states at (2026-10-20 01:31:03)
+@!@!@ENDMSG 2192 @!@!@
+@!@!@STARTMSG 2267:0 @!@!@
+Finished checking temporal properties in 00s at 2026-10-20 01:31:04
+@!@!@ENDMSG 2267 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(110) at 2026-10-20 01:31:04: 70,878 states generated (70,878 s/min), 23,935 distinct states found (23,935 ds/min), 940 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(195) at 2026-10-20 01:31:09: 236,639 states generated, 75,424 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2192:0 @!@!@
+Checking 6 branches of temporal properties for the complete state space with 452544 total distinct states at (2026-10-20 01:31:09)
+@!@!@ENDMSG 2192 @!@!@
+@!@!@STARTMSG 2267:0 @!@!@
+Finished checking temporal properties in 03s at 2026-10-20 01:31:13
+@!@!@ENDMSG 2267 @!@!@
+@!@!@STARTMSG 2193:0 @!@!@
+Model checking completed. No error has been found.
+  Estimates of the probability that TLC did not check all reachable states
+  because two distinct states had the same fingerprint:
+  calculated (optimistic):  val = 6.6E-10
+  based on the actual fingerprints:  val = 2.5E-10
+@!@!@ENDMSG 2193 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2026-10-20 01:31:14
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2773:0 @!@!@
+<Init line 465, col 1 to line 465, col 4 of module trash_multiple>: 1:1
+@!@!@ENDMSG 2773 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 466, col 9 to line 496, col 75 of module trash_multiple: 1
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<BinWaitForCommand line 498, col 1 to line 498, col 23 of module trash_multiple>: 6854:42783
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 498, col 31 to line 498, col 60 of module trash_multiple: 194217
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 498, col 31 to line 498, col 38 of module trash_multiple: 151434
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 499, col 31 to line 499, col 68 of module trash_multiple: 153255
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 499, col 31 to line 499, col 54 of module trash_multiple: 110472
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 500, col 34 to line 500, col 79 of module trash_multiple: 42783
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 501, col 42 to line 502, col 94 of module trash_multiple: 788
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 503, col 42 to line 503, col 112 of module trash_multiple: 788
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 504, col 45 to line 504, col 65 of module trash_multiple: 788
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 505, col 50 to line 505, col 126 of module trash_multiple: 394
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 506, col 53 to line 506, col 56 of module trash_multiple: 394
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 507, col 53 to line 507, col 71 of module trash_multiple: 394
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 508, col 42 to line 513, col 70 of module trash_multiple: 788
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 514, col 45 to line 514, col 90 of module trash_multiple: 41995
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 515, col 53 to line 516, col 105 of module trash_multiple: 4603
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 517, col 53 to line 517, col 130 of module trash_multiple: 4603
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 518, col 53 to line 523, col 81 of module trash_multiple: 4603
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 524, col 56 to line 524, col 100 of module trash_multiple: 37392
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 525, col 64 to line 526, col 116 of module trash_multiple: 28524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 527, col 67 to line 527, col 109 of module trash_multiple: 28524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 528, col 75 to line 528, col 128 of module trash_multiple: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 529, col 75 to line 529, col 78 of module trash_multiple: 28524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 530, col 75 to line 530, col 97 of module trash_multiple: 28524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 531, col 64 to line 531, col 132 of module trash_multiple: 28524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 532, col 67 to line 532, col 85 of module trash_multiple: 28524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 533, col 72 to line 534, col 119 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 535, col 75 to line 535, col 78 of module trash_multiple: 24996
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 536, col 75 to line 537, col 107 of module trash_multiple: 24996
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 538, col 64 to line 539, col 94 of module trash_multiple: 28524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 540, col 67 to line 540, col 105 of module trash_multiple: 8868
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 541, col 75 to line 542, col 127 of module trash_multiple: 5292
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 543, col 75 to line 543, col 141 of module trash_multiple: 5292
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 544, col 78 to line 544, col 95 of module trash_multiple: 5292
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 545, col 89 to line 545, col 107 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 546, col 97 to line 546, col 150 of module trash_multiple: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 547, col 97 to line 547, col 100 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 548, col 97 to line 548, col 119 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 549, col 86 to line 549, col 268 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 549, col 105 to line 549, col 268 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 549, col 106 to line 549, col 120 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 549, col 129 to line 549, col 267 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 549, col 139 to line 549, col 267 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 549, col 140 to line 549, col 160 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 549, col 165 to line 549, col 267 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 549, col 169 to line 549, col 197 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 549, col 205 to line 549, col 236 of module trash_multiple: 1764
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 549, col 244 to line 549, col 266 of module trash_multiple: 1764
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 550, col 86 to line 550, col 144 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 551, col 86 to line 551, col 89 of module trash_multiple: 1764
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 552, col 86 to line 554, col 114 of module trash_multiple: 1764
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 555, col 78 to line 555, col 111 of module trash_multiple: 3576
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 556, col 83 to line 566, col 140 of module trash_multiple: 3576
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 569, col 86 to line 569, col 110 of module trash_multiple: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 570, col 75 to line 572, col 103 of module trash_multiple: 3576
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 573, col 64 to line 574, col 89 of module trash_multiple: 8868
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 575, col 53 to line 575, col 77 of module trash_multiple: 37392
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 576, col 42 to line 576, col 81 of module trash_multiple: 41995
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 577, col 31 to line 577, col 78 of module trash_multiple: 42783
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 578, col 31 to line 582, col 74 of module trash_multiple: 42783
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<BinCommandFinished line 584, col 1 to line 584, col 24 of module trash_multiple>: 6302:40962
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 584, col 32 to line 584, col 62 of module trash_multiple: 192396
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 584, col 32 to line 584, col 39 of module trash_multiple: 151434
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 585, col 32 to line 585, col 93 of module trash_multiple: 40962
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 586, col 32 to line 586, col 78 of module trash_multiple: 40962
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 587, col 32 to line 595, col 75 of module trash_multiple: 40962
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<UserNextIteration line 599, col 1 to line 599, col 23 of module trash_multiple>: 3447:6414
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 599, col 31 to line 599, col 60 of module trash_multiple: 82131
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 599, col 31 to line 599, col 38 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 600, col 34 to line 600, col 52 of module trash_multiple: 6414
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 601, col 39 to line 601, col 83 of module trash_multiple: 5006
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 602, col 39 to line 602, col 83 of module trash_multiple: 1408
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 603, col 31 to line 612, col 56 of module trash_multiple: 6414
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<UserScanCard line 614, col 1 to line 614, col 18 of module trash_multiple>: 15326:22904
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 614, col 26 to line 614, col 50 of module trash_multiple: 87169
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 614, col 26 to line 614, col 33 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 616, col 28 to line 617, col 99 of module trash_multiple: 22904
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 615, col 38 to line 615, col 41 of module trash_multiple: 11452
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 618, col 26 to line 618, col 76 of module trash_multiple: 22904
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 619, col 26 to line 626, col 45 of module trash_multiple: 22904
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<UserAwaitScanResponse line 628, col 1 to line 628, col 27 of module trash_multiple>: 827:5308
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 628, col 35 to line 628, col 68 of module trash_multiple: 81025
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 628, col 35 to line 628, col 42 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 629, col 35 to line 629, col 61 of module trash_multiple: 50036
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 629, col 36 to line 629, col 52 of module trash_multiple: 44728
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 629, col 58 to line 629, col 61 of module trash_multiple: 44728
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 630, col 35 to line 630, col 91 of module trash_multiple: 5308
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 631, col 35 to line 631, col 105 of module trash_multiple: 5308
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 632, col 35 to line 633, col 87 of module trash_multiple: 5308
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 634, col 35 to line 635, col 87 of module trash_multiple: 5308
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 636, col 38 to line 636, col 56 of module trash_multiple: 5308
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 637, col 43 to line 637, col 87 of module trash_multiple: 1072
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 638, col 43 to line 638, col 92 of module trash_multiple: 4236
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 639, col 35 to line 648, col 78 of module trash_multiple: 5308
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<UserOpenDoor line 650, col 1 to line 650, col 18 of module trash_multiple>: 276:392
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 650, col 26 to line 650, col 50 of module trash_multiple: 76109
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 650, col 26 to line 650, col 33 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 651, col 26 to line 651, col 130 of module trash_multiple: 392
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 652, col 26 to line 652, col 72 of module trash_multiple: 392
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 653, col 26 to line 660, col 56 of module trash_multiple: 392
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<UserAwaitOpenDoor line 662, col 1 to line 662, col 23 of module trash_multiple>: 294:392
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 662, col 31 to line 662, col 60 of module trash_multiple: 76109
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 662, col 31 to line 662, col 38 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 663, col 31 to line 663, col 80 of module trash_multiple: 1570
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 663, col 31 to line 663, col 67 of module trash_multiple: 1178
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 664, col 31 to line 664, col 76 of module trash_multiple: 392
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 665, col 31 to line 674, col 56 of module trash_multiple: 392
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<UserDepositTrash line 676, col 1 to line 676, col 22 of module trash_multiple>: 293:398
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 676, col 30 to line 676, col 58 of module trash_multiple: 76115
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 676, col 30 to line 676, col 37 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 677, col 30 to line 678, col 82 of module trash_multiple: 398
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 679, col 30 to line 679, col 101 of module trash_multiple: 398
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 680, col 30 to line 680, col 72 of module trash_multiple: 398
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 681, col 30 to line 681, col 72 of module trash_multiple: 398
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 682, col 30 to line 690, col 55 of module trash_multiple: 398
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<UserCloseDoor line 692, col 1 to line 692, col 19 of module trash_multiple>: 290:396
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 692, col 27 to line 692, col 52 of module trash_multiple: 76113
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 692, col 27 to line 692, col 34 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 693, col 27 to line 693, col 132 of module trash_multiple: 396
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 694, col 27 to line 694, col 75 of module trash_multiple: 396
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 695, col 27 to line 702, col 70 of module trash_multiple: 396
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<UserAwaitClosedDoor line 704, col 1 to line 704, col 25 of module trash_multiple>: 950:1892
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 704, col 33 to line 704, col 64 of module trash_multiple: 77609
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 704, col 33 to line 704, col 40 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 705, col 33 to line 705, col 82 of module trash_multiple: 7679
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 705, col 33 to line 705, col 69 of module trash_multiple: 5787
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 706, col 33 to line 706, col 79 of module trash_multiple: 1892
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 707, col 33 to line 716, col 58 of module trash_multiple: 1892
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<UserNewTrash line 718, col 1 to line 718, col 18 of module trash_multiple>: 6694:9944
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 718, col 26 to line 718, col 50 of module trash_multiple: 80689
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 718, col 26 to line 718, col 33 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 720, col 28 to line 720, col 72 of module trash_multiple: 9944
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 719, col 37 to line 719, col 51 of module trash_multiple: 4972
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 721, col 26 to line 721, col 67 of module trash_multiple: 9944
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 722, col 26 to line 729, col 56 of module trash_multiple: 9944
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<ServerNextIteration line 737, col 1 to line 737, col 19 of module trash_multiple>: 1603:37953
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 737, col 27 to line 737, col 60 of module trash_multiple: 113670
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 737, col 27 to line 737, col 36 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 738, col 27 to line 738, col 76 of module trash_multiple: 37953
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 739, col 27 to line 746, col 76 of module trash_multiple: 37953
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<ServerAwaitRequest line 748, col 1 to line 748, col 18 of module trash_multiple>: 1643:2861
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 748, col 26 to line 748, col 58 of module trash_multiple: 78578
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 748, col 26 to line 748, col 35 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 749, col 26 to line 749, col 47 of module trash_multiple: 40625
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 749, col 26 to line 749, col 39 of module trash_multiple: 37764
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 749, col 44 to line 749, col 47 of module trash_multiple: 37764
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 750, col 26 to line 750, col 52 of module trash_multiple: 2861
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 751, col 26 to line 751, col 63 of module trash_multiple: 2861
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 752, col 26 to line 754, col 78 of module trash_multiple: 2861
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 755, col 26 to line 755, col 76 of module trash_multiple: 2861
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 756, col 26 to line 762, col 64 of module trash_multiple: 2861
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<TruckWaitRequest line 766, col 1 to line 766, col 22 of module trash_multiple>: 2195:10776
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 766, col 30 to line 766, col 58 of module trash_multiple: 86493
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 766, col 30 to line 766, col 37 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 767, col 30 to line 767, col 67 of module trash_multiple: 43553
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 767, col 30 to line 767, col 55 of module trash_multiple: 32777
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 768, col 30 to line 768, col 69 of module trash_multiple: 10776
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 769, col 30 to line 777, col 73 of module trash_multiple: 10776
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<TruckDrive line 779, col 1 to line 779, col 16 of module trash_multiple>: 7198:10728
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 779, col 24 to line 779, col 46 of module trash_multiple: 86445
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 779, col 24 to line 779, col 31 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 780, col 24 to line 780, col 88 of module trash_multiple: 10728
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 781, col 24 to line 781, col 67 of module trash_multiple: 10728
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 782, col 24 to line 788, col 73 of module trash_multiple: 10728
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<TruckWaitStart line 790, col 1 to line 790, col 20 of module trash_multiple>: 1858:3604
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 790, col 28 to line 790, col 54 of module trash_multiple: 79321
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 790, col 28 to line 790, col 35 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 791, col 28 to line 791, col 72 of module trash_multiple: 17936
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 791, col 28 to line 791, col 53 of module trash_multiple: 14332
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 792, col 28 to line 792, col 67 of module trash_multiple: 3604
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 793, col 28 to line 800, col 77 of module trash_multiple: 3604
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<TruckEmpty line 802, col 1 to line 802, col 16 of module trash_multiple>: 3250:3576
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 802, col 24 to line 802, col 46 of module trash_multiple: 79293
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 802, col 24 to line 802, col 31 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 803, col 24 to line 803, col 78 of module trash_multiple: 7152
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 803, col 24 to line 803, col 65 of module trash_multiple: 3576
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 804, col 24 to line 804, col 122 of module trash_multiple: 3576
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 805, col 24 to line 805, col 70 of module trash_multiple: 3576
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 806, col 24 to line 813, col 54 of module trash_multiple: 3576
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<TruckAwaitEmptied line 815, col 1 to line 815, col 23 of module trash_multiple>: 3035:3576
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 815, col 31 to line 815, col 60 of module trash_multiple: 79293
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 815, col 31 to line 815, col 38 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 816, col 31 to line 816, col 85 of module trash_multiple: 14304
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 816, col 31 to line 816, col 72 of module trash_multiple: 10728
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 817, col 31 to line 817, col 71 of module trash_multiple: 3576
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 818, col 31 to line 827, col 56 of module trash_multiple: 3576
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<TruckReport line 829, col 1 to line 829, col 17 of module trash_multiple>: 2399:3576
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 829, col 25 to line 829, col 48 of module trash_multiple: 79293
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 829, col 25 to line 829, col 32 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 830, col 25 to line 830, col 89 of module trash_multiple: 3576
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 831, col 25 to line 831, col 70 of module trash_multiple: 3576
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 832, col 25 to line 838, col 74 of module trash_multiple: 3576
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<ControlLoop line 844, col 1 to line 844, col 11 of module trash_multiple>: 3329:7091
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 844, col 19 to line 844, col 45 of module trash_multiple: 82808
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 844, col 19 to line 844, col 29 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 845, col 25 to line 845, col 41 of module trash_multiple: 18524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 845, col 25 to line 845, col 35 of module trash_multiple: 17548
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 376, col 16 to line 376, col 91 of module trash_multiple: 17548
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 376, col 39 to line 376, col 90 of module trash_multiple: 2928
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 376, col 23 to line 376, col 35 of module trash_multiple: 17548
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 845, col 40 to line 845, col 41 of module trash_multiple: 17548
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 846, col 25 to line 846, col 101 of module trash_multiple: 976
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 847, col 25 to line 847, col 68 of module trash_multiple: 976
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 848, col 25 to line 848, col 65 of module trash_multiple: 976
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 849, col 25 to line 849, col 39 of module trash_multiple: 19072
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 849, col 25 to line 849, col 33 of module trash_multiple: 17548
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 374, col 14 to line 374, col 57 of module trash_multiple: 17548
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 374, col 28 to line 374, col 56 of module trash_multiple: 35096
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 374, col 28 to line 374, col 37 of module trash_multiple: 35096
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 374, col 42 to line 374, col 56 of module trash_multiple: 19916
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||line 374, col 43 to line 374, col 56 of module trash_multiple: 19916
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||line 372, col 21 to line 373, col 109 of module trash_multiple: 19916
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||||line 372, col 39 to line 373, col 109 of module trash_multiple: 19916
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||||line 372, col 42 to line 372, col 66 of module trash_multiple: 19916
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||||line 373, col 42 to line 373, col 109 of module trash_multiple: 12164
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||||line 372, col 30 to line 372, col 35 of module trash_multiple: 19916
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||line 374, col 55 to line 374, col 55 of module trash_multiple: 19916
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 374, col 21 to line 374, col 24 of module trash_multiple: 17548
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 849, col 38 to line 849, col 39 of module trash_multiple: 17548
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 849, col 44 to line 849, col 64 of module trash_multiple: 9708
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 849, col 44 to line 849, col 58 of module trash_multiple: 8184
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 849, col 63 to line 849, col 64 of module trash_multiple: 8184
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 850, col 25 to line 850, col 117 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 850, col 41 to line 850, col 117 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 850, col 42 to line 850, col 53 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 850, col 62 to line 850, col 116 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 850, col 77 to line 850, col 116 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 850, col 109 to line 850, col 115 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 377, col 12 to line 377, col 40 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||line 377, col 37 to line 377, col 40 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||line 377, col 25 to line 377, col 33 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2775:0 @!@!@
+  ||||||line 374, col 14 to line 374, col 57 of module trash_multiple: 1524:1524
+@!@!@ENDMSG 2775 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||||line 374, col 28 to line 374, col 56 of module trash_multiple: 3048
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||||line 374, col 28 to line 374, col 37 of module trash_multiple: 3048
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||||line 374, col 42 to line 374, col 56 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||||||line 374, col 43 to line 374, col 56 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||||||line 372, col 21 to line 373, col 109 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||||||||line 372, col 39 to line 373, col 109 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||||||||line 372, col 42 to line 372, col 66 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||||||||line 373, col 42 to line 373, col 109 of module trash_multiple: 432
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||||||||line 372, col 30 to line 372, col 35 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||||||line 374, col 55 to line 374, col 55 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||||line 374, col 21 to line 374, col 24 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 851, col 25 to line 851, col 68 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 852, col 25 to line 852, col 65 of module trash_multiple: 1524
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 853, col 25 to line 853, col 37 of module trash_multiple: 22139
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 853, col 25 to line 853, col 29 of module trash_multiple: 17548
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 853, col 34 to line 853, col 37 of module trash_multiple: 17548
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 853, col 42 to line 853, col 59 of module trash_multiple: 10814
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 853, col 42 to line 853, col 54 of module trash_multiple: 6223
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 853, col 58 to line 853, col 59 of module trash_multiple: 6223
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 853, col 64 to line 853, col 106 of module trash_multiple: 9806
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 853, col 66 to line 853, col 105 of module trash_multiple: 5215
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 853, col 66 to line 853, col 80 of module trash_multiple: 5215
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 853, col 66 to line 853, col 74 of module trash_multiple: 5215
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 374, col 14 to line 374, col 57 of module trash_multiple: 5215
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||line 374, col 28 to line 374, col 56 of module trash_multiple: 10430
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||line 374, col 28 to line 374, col 37 of module trash_multiple: 10430
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||line 374, col 42 to line 374, col 56 of module trash_multiple: 5376
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||||line 374, col 43 to line 374, col 56 of module trash_multiple: 5376
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||||line 372, col 21 to line 373, col 109 of module trash_multiple: 5376
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||||||line 372, col 39 to line 373, col 109 of module trash_multiple: 5376
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||||||line 372, col 42 to line 372, col 66 of module trash_multiple: 5376
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||||||line 373, col 42 to line 373, col 109 of module trash_multiple: 3216
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||||||line 372, col 30 to line 372, col 35 of module trash_multiple: 5376
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||||line 374, col 55 to line 374, col 55 of module trash_multiple: 5376
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||line 374, col 21 to line 374, col 24 of module trash_multiple: 5215
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 853, col 79 to line 853, col 80 of module trash_multiple: 5215
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 853, col 85 to line 853, col 105 of module trash_multiple: 2352
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 854, col 25 to line 854, col 37 of module trash_multiple: 9182
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 854, col 25 to line 854, col 29 of module trash_multiple: 4591
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 854, col 34 to line 854, col 37 of module trash_multiple: 4591
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 855, col 25 to line 855, col 43 of module trash_multiple: 4591
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 856, col 25 to line 856, col 44 of module trash_multiple: 4591
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 857, col 25 to line 857, col 89 of module trash_multiple: 4591
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 858, col 25 to line 858, col 75 of module trash_multiple: 4591
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 859, col 25 to line 859, col 46 of module trash_multiple: 4591
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 860, col 19 to line 865, col 43 of module trash_multiple: 7091
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<ControlAwaitServer line 867, col 1 to line 867, col 18 of module trash_multiple>: 2893:5732
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 867, col 26 to line 867, col 59 of module trash_multiple: 81449
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 867, col 26 to line 867, col 36 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 868, col 26 to line 868, col 48 of module trash_multiple: 17190
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 868, col 26 to line 868, col 40 of module trash_multiple: 11458
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 868, col 45 to line 868, col 48 of module trash_multiple: 11458
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 869, col 26 to line 869, col 54 of module trash_multiple: 5732
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 870, col 26 to line 870, col 65 of module trash_multiple: 5732
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 871, col 26 to line 872, col 78 of module trash_multiple: 5732
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 873, col 29 to line 873, col 115 of module trash_multiple: 5732
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 873, col 29 to line 873, col 70 of module trash_multiple: 5732
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 873, col 29 to line 873, col 44 of module trash_multiple: 5732
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 873, col 49 to line 873, col 70 of module trash_multiple: 5732
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 873, col 50 to line 873, col 70 of module trash_multiple: 5732
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 372, col 21 to line 373, col 109 of module trash_multiple: 5732
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||line 372, col 39 to line 373, col 109 of module trash_multiple: 5732
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||line 372, col 42 to line 372, col 66 of module trash_multiple: 5732
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||||line 373, col 42 to line 373, col 109 of module trash_multiple: 2867
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||||line 372, col 30 to line 372, col 35 of module trash_multiple: 5732
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 873, col 62 to line 873, col 69 of module trash_multiple: 5732
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 873, col 75 to line 873, col 115 of module trash_multiple: 3212
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 874, col 37 to line 874, col 82 of module trash_multiple: 2060
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 875, col 37 to line 875, col 57 of module trash_multiple: 2060
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 876, col 34 to line 877, col 80 of module trash_multiple: 3672
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 878, col 26 to line 884, col 69 of module trash_multiple: 5732
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<ControlUnlock line 886, col 1 to line 886, col 13 of module trash_multiple>: 690:1082
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 886, col 21 to line 886, col 49 of module trash_multiple: 76799
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 886, col 21 to line 886, col 31 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 887, col 21 to line 887, col 61 of module trash_multiple: 3140
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 887, col 21 to line 887, col 48 of module trash_multiple: 2058
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 888, col 21 to line 888, col 116 of module trash_multiple: 1082
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 889, col 21 to line 889, col 65 of module trash_multiple: 1082
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 890, col 21 to line 896, col 46 of module trash_multiple: 1082
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<ControlGrant line 898, col 1 to line 898, col 12 of module trash_multiple>: 705:1072
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 898, col 20 to line 898, col 47 of module trash_multiple: 76789
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 898, col 20 to line 898, col 30 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 899, col 20 to line 899, col 60 of module trash_multiple: 4289
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 899, col 20 to line 899, col 47 of module trash_multiple: 3217
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 900, col 20 to line 900, col 162 of module trash_multiple: 1072
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 901, col 20 to line 901, col 70 of module trash_multiple: 1072
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 902, col 20 to line 908, col 63 of module trash_multiple: 1072
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<ControlAwaitClosed line 910, col 1 to line 910, col 18 of module trash_multiple>: 639:3626
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 910, col 26 to line 910, col 59 of module trash_multiple: 79343
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 910, col 26 to line 910, col 36 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 911, col 26 to line 911, col 73 of module trash_multiple: 11474
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 911, col 26 to line 911, col 51 of module trash_multiple: 7848
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 911, col 78 to line 911, col 118 of module trash_multiple: 7644
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 911, col 78 to line 911, col 105 of module trash_multiple: 4018
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 912, col 26 to line 912, col 90 of module trash_multiple: 3626
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 913, col 26 to line 913, col 122 of module trash_multiple: 3626
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 914, col 26 to line 914, col 73 of module trash_multiple: 3626
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 915, col 26 to line 921, col 75 of module trash_multiple: 3626
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<ControlOpenTrap line 923, col 1 to line 923, col 15 of module trash_multiple>: 760:3528
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 923, col 23 to line 923, col 53 of module trash_multiple: 79245
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 923, col 23 to line 923, col 33 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 924, col 23 to line 924, col 63 of module trash_multiple: 14114
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 924, col 23 to line 924, col 50 of module trash_multiple: 10586
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 925, col 23 to line 925, col 117 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 926, col 23 to line 926, col 71 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 927, col 23 to line 934, col 53 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<ControlExtendRam line 936, col 1 to line 936, col 16 of module trash_multiple>: 784:3528
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 936, col 24 to line 936, col 55 of module trash_multiple: 79245
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 936, col 24 to line 936, col 34 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 937, col 24 to line 937, col 64 of module trash_multiple: 14182
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 937, col 24 to line 937, col 51 of module trash_multiple: 10654
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 938, col 24 to line 938, col 112 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 939, col 24 to line 939, col 73 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 940, col 24 to line 947, col 54 of module trash_multiple: 3528
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<ControlRetractRam line 949, col 1 to line 949, col 17 of module trash_multiple>: 421:1764
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 949, col 25 to line 949, col 57 of module trash_multiple: 77481
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 949, col 25 to line 949, col 35 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 950, col 25 to line 950, col 65 of module trash_multiple: 8820
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 950, col 25 to line 950, col 52 of module trash_multiple: 7056
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 951, col 25 to line 951, col 114 of module trash_multiple: 1764
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 952, col 25 to line 952, col 73 of module trash_multiple: 1764
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 953, col 25 to line 960, col 55 of module trash_multiple: 1764
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<ControlCloseTrap line 962, col 1 to line 962, col 16 of module trash_multiple>: 468:1764
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 962, col 24 to line 962, col 55 of module trash_multiple: 77481
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 962, col 24 to line 962, col 34 of module trash_multiple: 75717
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 963, col 24 to line 963, col 64 of module trash_multiple: 7056
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 963, col 24 to line 963, col 51 of module trash_multiple: 5292
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 964, col 24 to line 964, col 119 of module trash_multiple: 1764
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 965, col 24 to line 965, col 67 of module trash_multiple: 1764
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 966, col 24 to line 973, col 54 of module trash_multiple: 1764
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<TypeOK line 385, col 1 to line 385, col 6 of module trash_multiple>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 385, col 11 to line 413, col 52 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 385, col 14 to line 396, col 64 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 385, col 29 to line 396, col 64 of module trash_multiple: 150848
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 385, col 23 to line 385, col 26 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 397, col 14 to line 397, col 49 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 398, col 14 to line 400, col 41 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 399, col 16 to line 400, col 41 of module trash_multiple: 22664
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 398, col 23 to line 398, col 35 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 401, col 14 to line 405, col 57 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 402, col 16 to line 405, col 57 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 403, col 18 to line 405, col 57 of module trash_multiple: 5296
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 402, col 25 to line 402, col 46 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 401, col 23 to line 401, col 27 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 406, col 14 to line 407, col 50 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 407, col 16 to line 407, col 50 of module trash_multiple: 5720
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 406, col 23 to line 406, col 44 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 408, col 14 to line 410, col 59 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 409, col 16 to line 410, col 59 of module trash_multiple: 5720
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 408, col 23 to line 408, col 45 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 411, col 14 to line 412, col 61 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 413, col 14 to line 413, col 52 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<MessagesOK line 416, col 1 to line 416, col 10 of module trash_multiple>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 416, col 15 to line 420, col 42 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<CapacitiesRespected line 425, col 1 to line 425, col 19 of module trash_multiple>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 425, col 24 to line 431, col 59 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 426, col 26 to line 431, col 59 of module trash_multiple: 150848
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 425, col 33 to line 425, col 36 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<TrapNotDestroyed line 432, col 1 to line 432, col 16 of module trash_multiple>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 432, col 21 to line 433, col 39 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 433, col 23 to line 433, col 39 of module trash_multiple: 150848
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 432, col 30 to line 432, col 33 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<CapacityNotExceeded line 434, col 1 to line 434, col 19 of module trash_multiple>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 434, col 24 to line 435, col 45 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 435, col 26 to line 435, col 45 of module trash_multiple: 150848
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 434, col 33 to line 434, col 36 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<OuterDoorLocked line 441, col 1 to line 441, col 15 of module trash_multiple>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 441, col 20 to line 441, col 74 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 441, col 36 to line 441, col 74 of module trash_multiple: 150848
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 441, col 36 to line 441, col 53 of module trash_multiple: 150848
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 441, col 58 to line 441, col 74 of module trash_multiple: 137440
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 441, col 29 to line 441, col 32 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<RamOuterDoor line 443, col 1 to line 443, col 12 of module trash_multiple>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 443, col 17 to line 443, col 91 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 443, col 33 to line 443, col 91 of module trash_multiple: 150848
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 443, col 33 to line 443, col 46 of module trash_multiple: 150848
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 443, col 52 to line 443, col 90 of module trash_multiple: 5292
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 443, col 26 to line 443, col 29 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<AuthorizedOpenOnly line 1001, col 1 to line 1001, col 18 of module trash_multiple>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 1002, col 3 to line 1007, col 19 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 1002, col 19 to line 1007, col 19 of module trash_multiple: 150848
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 1002, col 19 to line 1002, col 34 of module trash_multiple: 150848
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 1003, col 5 to line 1007, col 19 of module trash_multiple: 1960
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 1002, col 12 to line 1002, col 15 of module trash_multiple: 75424
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(195) at 2026-10-20 01:31:14: 236,639 states generated (999,953 s/min), 75,424 distinct states found (318,715 ds/min), 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+236639 states generated, 75424 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2194:0 @!@!@
+The depth of the complete state graph search is 195.
+@!@!@ENDMSG 2194 @!@!@
+@!@!@STARTMSG 2268:0 @!@!@
+The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 4 and the 95th percentile is 2).
+@!@!@ENDMSG 2268 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 14201ms at (2026-10-20 01:31:14)
+@!@!@ENDMSG 2186 @!@!@

@@ -337,7 +337,7 @@ begin
 end process;
 
 end algorithm; *)
-\* BEGIN TRANSLATION
+\* BEGIN TRANSLATION (chksum(pcal) \in STRING /\ chksum(tla) \in STRING)
 VARIABLES outerDoorOpen, outerDoorLocked, trapDoorOpen, ramExtended, 
           trashInTop, trashCompressed, trashUncompressed, trashCapacity, 
           trapDestroyed, userTrash, binCommand, binSensor, scans, permissions, 
@@ -964,3 +964,4 @@ AuthorizedOpenOnly ==
 
 =============================================================================
 \* Modification History
+\* Last modified Tue Oct 20 01:24:45 CEST 2026 by 20254333

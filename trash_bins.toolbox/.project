@@ -26,6 +26,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/trash_data.tla</locationURI>
 		</link>
 		<link>
+			<name>trash_multiple.tla</name>
+			<type>1</type>
+			<location>C:/Users/20254333/OneDrive - TU Eindhoven/Desktop/Assignment/trash_multiple.tla</location>
+		</link>
+		<link>
 			<name>trash_single.tla</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/trash_single.tla</locationURI>
