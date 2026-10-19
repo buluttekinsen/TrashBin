@@ -23,12 +23,12 @@
 		<link>
 			<name>trash_data.tla</name>
 			<type>1</type>
-			<location>C:/Users/20254333/Downloads/Assignment/trash_data.tla</location>
+			<locationURI>PARENT-1-PROJECT_LOC/trash_data.tla</locationURI>
 		</link>
 		<link>
 			<name>trash_single.tla</name>
 			<type>1</type>
-			<location>C:/Users/20254333/Downloads/Assignment/trash_single.tla</location>
+			<locationURI>PARENT-1-PROJECT_LOC/trash_single.tla</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

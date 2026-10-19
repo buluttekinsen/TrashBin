@@ -36,7 +36,9 @@ variables
   serverRequests = << >>,
   serverResponses = << >>,
   \* Commands for the trucks
-  truckCommand = [t \in Trucks |-> [command |-> "emptied", bin |-> 1]];
+  truckCommand = [t \in Trucks |-> [command |-> "emptied", bin |-> 1]],
+  \* Ghost variable (Note 12): last verdict of the server for each user
+  verdict = [u \in Users |-> FALSE];
 
 define
 
@@ -91,6 +93,7 @@ TypeOK == /\ \A b \in Bins: /\ outerDoorOpen[b] \in BOOLEAN
                /\ serverResponses[i].permission \in BOOLEAN
           /\ \A t \in Trucks: /\ truckCommand[t].command \in TruckCommand
                               /\ truckCommand[t].bin \in Bins
+          /\ \A u \in Users : verdict[u] \in BOOLEAN
 
 \* Check that message queues are not overflowing
 MessagesOK == /\ Len(scans) <= NumUsers
@@ -272,6 +275,7 @@ begin
       read(serverRequests, req);
       with valid \in ValidCard(req.user) do
         write(serverResponses, [user |-> req.user, permission |-> valid]);
+        verdict[req.user] := valid;
       end with;
     end while;
 end process;
@@ -356,29 +360,27 @@ end algorithm; *)
 VARIABLES outerDoorOpen, outerDoorLocked, trapDoorOpen, ramExtended, 
           trashInTop, trashCompressed, trashUncompressed, trashCapacity, 
           trapDestroyed, userTrash, binCommand, binSensor, scans, permissions, 
-          serverRequests, serverResponses, truckCommand, pc
+          serverRequests, serverResponses, truckCommand, verdict, pc
 
 (* define statement *)
 Trash(bin) == trashCompressed[bin] + trashUncompressed[bin]
 CapacityExceeded(bin) == Trash(bin) > trashCapacity[bin]
 TrashFitsCapacity(bin, trash) == Trash(bin) + trash <= trashCapacity[bin]
-
 AvailableTrucks == {t \in Trucks : truckCommand[t].command = "emptied"}
 
 BinFull(bin) == ~TrashFitsCapacity(bin, MaxUserTrash)
-
 BinReserved(bin) == \E t \in Trucks : /\ truckCommand[t].bin = bin
                                       /\ truckCommand[t].command \in {"request", "arrived", "start_emptying"}
-
 NeedyBins == {b \in Bins : BinFull(b) /\ ~BinReserved(b)}
-
 ArrivedTrucks == {t \in Trucks : truckCommand[t].command = "arrived"}
-
 ReadyTrucks == {t \in ArrivedTrucks : binCommand[truckCommand[t].bin].command = "finished"}
-
 PickBin == CHOOSE b \in NeedyBins : TRUE
 PickTruck == CHOOSE t \in AvailableTrucks : TRUE
 PickReady == CHOOSE t \in ReadyTrucks : TRUE
+
+
+
+
 
 TypeOK == /\ \A b \in Bins: /\ outerDoorOpen[b] \in BOOLEAN
                             /\ outerDoorLocked[b] \in BOOLEAN
@@ -408,12 +410,17 @@ TypeOK == /\ \A b \in Bins: /\ outerDoorOpen[b] \in BOOLEAN
                /\ serverResponses[i].permission \in BOOLEAN
           /\ \A t \in Trucks: /\ truckCommand[t].command \in TruckCommand
                               /\ truckCommand[t].bin \in Bins
+          /\ \A u \in Users : verdict[u] \in BOOLEAN
+
 
 MessagesOK == /\ Len(scans) <= NumUsers
               /\ \A u \in Users:
                    Len(permissions[u]) <= 1
               /\ Len(serverRequests) <= 1
               /\ Len(serverResponses) <= 1
+
+
+
 
 CapacitiesRespected == \A b \in Bins:
                          /\ trashUncompressed[b] >= 0
@@ -426,6 +433,10 @@ TrapNotDestroyed == \A b \in Bins:
                       ~trapDestroyed[b]
 CapacityNotExceeded == \A b \in Bins:
                          ~CapacityExceeded(b)
+
+
+
+
 
 OuterDoorLocked == \A b \in Bins : outerDoorLocked[b] => ~outerDoorOpen[b]
 
@@ -446,8 +457,8 @@ VARIABLES perm, selectedBin, req, scan, resp
 vars == << outerDoorOpen, outerDoorLocked, trapDoorOpen, ramExtended, 
            trashInTop, trashCompressed, trashUncompressed, trashCapacity, 
            trapDestroyed, userTrash, binCommand, binSensor, scans, 
-           permissions, serverRequests, serverResponses, truckCommand, pc, 
-           perm, selectedBin, req, scan, resp >>
+           permissions, serverRequests, serverResponses, truckCommand, 
+           verdict, pc, perm, selectedBin, req, scan, resp >>
 
 ProcSet == (Bins) \cup (Users) \cup {Server} \cup (Trucks) \cup {Control}
 
@@ -469,6 +480,7 @@ Init == (* Global variables *)
         /\ serverRequests = << >>
         /\ serverResponses = << >>
         /\ truckCommand = [t \in Trucks |-> [command |-> "emptied", bin |-> 1]]
+        /\ verdict = [u \in Users |-> FALSE]
         (* Process userProcess *)
         /\ perm = [self \in Users |-> [user |-> 0, bin |-> 0, granted |-> FALSE]]
         /\ selectedBin = [self \in Users |-> 0]
@@ -487,7 +499,7 @@ BinWaitForCommand(self) == /\ pc[self] = "BinWaitForCommand"
                            /\ binCommand[self].command /= "finished"
                            /\ IF binCommand[self].command = "change_outer_door"
                                  THEN /\ Assert(~outerDoorLocked[self], 
-                                                "Failure of assertion at line 170, column 9.")
+                                                "Failure of assertion at line 173, column 9.")
                                       /\ outerDoorOpen' = [outerDoorOpen EXCEPT ![self] = binCommand[self].open]
                                       /\ IF ~outerDoorOpen'[self]
                                             THEN /\ binSensor' = [binSensor EXCEPT ![self] = [sensor |-> "outer_door_closed"]]
@@ -501,7 +513,7 @@ BinWaitForCommand(self) == /\ pc[self] = "BinWaitForCommand"
                                                       trapDestroyed >>
                                  ELSE /\ IF binCommand[self].command = "change_outer_lock"
                                             THEN /\ Assert(~outerDoorOpen[self], 
-                                                           "Failure of assertion at line 177, column 9.")
+                                                           "Failure of assertion at line 180, column 9.")
                                                  /\ outerDoorLocked' = [outerDoorLocked EXCEPT ![self] = ~(binCommand[self].open)]
                                                  /\ UNCHANGED << trapDoorOpen, 
                                                                  ramExtended, 
@@ -511,7 +523,7 @@ BinWaitForCommand(self) == /\ pc[self] = "BinWaitForCommand"
                                                                  trapDestroyed >>
                                             ELSE /\ IF binCommand[self].command = "change_trap_door"
                                                        THEN /\ Assert(outerDoorLocked[self], 
-                                                                      "Failure of assertion at line 180, column 9.")
+                                                                      "Failure of assertion at line 183, column 9.")
                                                             /\ IF ramExtended[self] \/ CapacityExceeded(self)
                                                                   THEN /\ trapDestroyed' = [trapDestroyed EXCEPT ![self] = TRUE]
                                                                   ELSE /\ TRUE
@@ -527,7 +539,7 @@ BinWaitForCommand(self) == /\ pc[self] = "BinWaitForCommand"
                                                                             trashCompressed >>
                                                        ELSE /\ IF binCommand[self].command = "change_ram"
                                                                   THEN /\ Assert(outerDoorLocked[self], 
-                                                                                 "Failure of assertion at line 192, column 9.")
+                                                                                 "Failure of assertion at line 195, column 9.")
                                                                        /\ ramExtended' = [ramExtended EXCEPT ![self] = binCommand[self].open]
                                                                        /\ IF ramExtended'[self]
                                                                              THEN /\ IF ~trapDoorOpen[self]
@@ -542,18 +554,18 @@ BinWaitForCommand(self) == /\ pc[self] = "BinWaitForCommand"
                                                                                                   trapDestroyed >>
                                                                   ELSE /\ IF binCommand[self].command = "empty"
                                                                              THEN /\ Assert(outerDoorLocked[self], 
-                                                                                            "Failure of assertion at line 204, column 9.")
-                                                                                  /\ Assert(~trapDoorOpen[self], 
-                                                                                            "Failure of assertion at line 205, column 9.")
-                                                                                  /\ Assert(~ramExtended[self], 
-                                                                                            "Failure of assertion at line 206, column 9.")
-                                                                                  /\ Assert(trashInTop[self] = 0, 
                                                                                             "Failure of assertion at line 207, column 9.")
-                                                                                  /\ Assert(trashUncompressed[self] = 0, 
+                                                                                  /\ Assert(~trapDoorOpen[self], 
                                                                                             "Failure of assertion at line 208, column 9.")
+                                                                                  /\ Assert(~ramExtended[self], 
+                                                                                            "Failure of assertion at line 209, column 9.")
+                                                                                  /\ Assert(trashInTop[self] = 0, 
+                                                                                            "Failure of assertion at line 210, column 9.")
+                                                                                  /\ Assert(trashUncompressed[self] = 0, 
+                                                                                            "Failure of assertion at line 211, column 9.")
                                                                                   /\ trashCompressed' = [trashCompressed EXCEPT ![self] = 0]
                                                                              ELSE /\ Assert(FALSE, 
-                                                                                            "Failure of assertion at line 212, column 9.")
+                                                                                            "Failure of assertion at line 215, column 9.")
                                                                                   /\ UNCHANGED trashCompressed
                                                                        /\ UNCHANGED << ramExtended, 
                                                                                        trashUncompressed, 
@@ -566,8 +578,8 @@ BinWaitForCommand(self) == /\ pc[self] = "BinWaitForCommand"
                            /\ UNCHANGED << trashCapacity, userTrash, 
                                            binCommand, scans, permissions, 
                                            serverRequests, serverResponses, 
-                                           truckCommand, perm, selectedBin, 
-                                           req, scan, resp >>
+                                           truckCommand, verdict, perm, 
+                                           selectedBin, req, scan, resp >>
 
 BinCommandFinished(self) == /\ pc[self] = "BinCommandFinished"
                             /\ binCommand' = [binCommand EXCEPT ![self].command = "finished"]
@@ -579,8 +591,8 @@ BinCommandFinished(self) == /\ pc[self] = "BinCommandFinished"
                                             trapDestroyed, userTrash, 
                                             binSensor, scans, permissions, 
                                             serverRequests, serverResponses, 
-                                            truckCommand, perm, selectedBin, 
-                                            req, scan, resp >>
+                                            truckCommand, verdict, perm, 
+                                            selectedBin, req, scan, resp >>
 
 binProcess(self) == BinWaitForCommand(self) \/ BinCommandFinished(self)
 
@@ -595,8 +607,9 @@ UserNextIteration(self) == /\ pc[self] = "UserNextIteration"
                                            trapDestroyed, userTrash, 
                                            binCommand, binSensor, scans, 
                                            permissions, serverRequests, 
-                                           serverResponses, truckCommand, perm, 
-                                           selectedBin, req, scan, resp >>
+                                           serverResponses, truckCommand, 
+                                           verdict, perm, selectedBin, req, 
+                                           scan, resp >>
 
 UserScanCard(self) == /\ pc[self] = "UserScanCard"
                       /\ \E sBin \in Bins:
@@ -609,16 +622,17 @@ UserScanCard(self) == /\ pc[self] = "UserScanCard"
                                       trashCapacity, trapDestroyed, userTrash, 
                                       binCommand, binSensor, permissions, 
                                       serverRequests, serverResponses, 
-                                      truckCommand, perm, req, scan, resp >>
+                                      truckCommand, verdict, perm, req, scan, 
+                                      resp >>
 
 UserAwaitScanResponse(self) == /\ pc[self] = "UserAwaitScanResponse"
                                /\ (permissions[self]) /= <<>>
                                /\ perm' = [perm EXCEPT ![self] = Head((permissions[self]))]
                                /\ permissions' = [permissions EXCEPT ![self] = Tail((permissions[self]))]
                                /\ Assert(perm'[self].user = self, 
-                                         "Failure of assertion at line 243, column 7.")
+                                         "Failure of assertion at line 246, column 7.")
                                /\ Assert(perm'[self].bin = selectedBin[self], 
-                                         "Failure of assertion at line 244, column 7.")
+                                         "Failure of assertion at line 247, column 7.")
                                /\ IF perm'[self].granted
                                      THEN /\ pc' = [pc EXCEPT ![self] = "UserOpenDoor"]
                                      ELSE /\ pc' = [pc EXCEPT ![self] = "UserNextIteration"]
@@ -630,8 +644,8 @@ UserAwaitScanResponse(self) == /\ pc[self] = "UserAwaitScanResponse"
                                                userTrash, binCommand, 
                                                binSensor, scans, 
                                                serverRequests, serverResponses, 
-                                               truckCommand, selectedBin, req, 
-                                               scan, resp >>
+                                               truckCommand, verdict, 
+                                               selectedBin, req, scan, resp >>
 
 UserOpenDoor(self) == /\ pc[self] = "UserOpenDoor"
                       /\ binCommand' = [binCommand EXCEPT ![selectedBin[self]] = [command |-> "change_outer_door", open |-> TRUE]]
@@ -642,8 +656,8 @@ UserOpenDoor(self) == /\ pc[self] = "UserOpenDoor"
                                       trashCapacity, trapDestroyed, userTrash, 
                                       binSensor, scans, permissions, 
                                       serverRequests, serverResponses, 
-                                      truckCommand, perm, selectedBin, req, 
-                                      scan, resp >>
+                                      truckCommand, verdict, perm, selectedBin, 
+                                      req, scan, resp >>
 
 UserAwaitOpenDoor(self) == /\ pc[self] = "UserAwaitOpenDoor"
                            /\ binCommand[selectedBin[self]].command = "finished"
@@ -655,12 +669,13 @@ UserAwaitOpenDoor(self) == /\ pc[self] = "UserAwaitOpenDoor"
                                            trapDestroyed, userTrash, 
                                            binCommand, binSensor, scans, 
                                            permissions, serverRequests, 
-                                           serverResponses, truckCommand, perm, 
-                                           selectedBin, req, scan, resp >>
+                                           serverResponses, truckCommand, 
+                                           verdict, perm, selectedBin, req, 
+                                           scan, resp >>
 
 UserDepositTrash(self) == /\ pc[self] = "UserDepositTrash"
                           /\ Assert(trashInTop[selectedBin[self]] = 0, 
-                                    "Failure of assertion at line 251, column 9.")
+                                    "Failure of assertion at line 254, column 9.")
                           /\ trashInTop' = [trashInTop EXCEPT ![selectedBin[self]] = userTrash[self]]
                           /\ userTrash' = [userTrash EXCEPT ![self] = 0]
                           /\ pc' = [pc EXCEPT ![self] = "UserCloseDoor"]
@@ -670,8 +685,9 @@ UserDepositTrash(self) == /\ pc[self] = "UserDepositTrash"
                                           trashCapacity, trapDestroyed, 
                                           binCommand, binSensor, scans, 
                                           permissions, serverRequests, 
-                                          serverResponses, truckCommand, perm, 
-                                          selectedBin, req, scan, resp >>
+                                          serverResponses, truckCommand, 
+                                          verdict, perm, selectedBin, req, 
+                                          scan, resp >>
 
 UserCloseDoor(self) == /\ pc[self] = "UserCloseDoor"
                        /\ binCommand' = [binCommand EXCEPT ![selectedBin[self]] = [command |-> "change_outer_door", open |-> FALSE]]
@@ -682,8 +698,8 @@ UserCloseDoor(self) == /\ pc[self] = "UserCloseDoor"
                                        trashCapacity, trapDestroyed, userTrash, 
                                        binSensor, scans, permissions, 
                                        serverRequests, serverResponses, 
-                                       truckCommand, perm, selectedBin, req, 
-                                       scan, resp >>
+                                       truckCommand, verdict, perm, 
+                                       selectedBin, req, scan, resp >>
 
 UserAwaitClosedDoor(self) == /\ pc[self] = "UserAwaitClosedDoor"
                              /\ binCommand[selectedBin[self]].command = "finished"
@@ -696,8 +712,8 @@ UserAwaitClosedDoor(self) == /\ pc[self] = "UserAwaitClosedDoor"
                                              binCommand, binSensor, scans, 
                                              permissions, serverRequests, 
                                              serverResponses, truckCommand, 
-                                             perm, selectedBin, req, scan, 
-                                             resp >>
+                                             verdict, perm, selectedBin, req, 
+                                             scan, resp >>
 
 UserNewTrash(self) == /\ pc[self] = "UserNewTrash"
                       /\ \E amt \in 1..MaxUserTrash:
@@ -709,8 +725,8 @@ UserNewTrash(self) == /\ pc[self] = "UserNewTrash"
                                       trashCapacity, trapDestroyed, binCommand, 
                                       binSensor, scans, permissions, 
                                       serverRequests, serverResponses, 
-                                      truckCommand, perm, selectedBin, req, 
-                                      scan, resp >>
+                                      truckCommand, verdict, perm, selectedBin, 
+                                      req, scan, resp >>
 
 userProcess(self) == UserNextIteration(self) \/ UserScanCard(self)
                         \/ UserAwaitScanResponse(self)
@@ -726,15 +742,16 @@ ServerNextIteration == /\ pc[Server] = "ServerNextIteration"
                                        trashCapacity, trapDestroyed, userTrash, 
                                        binCommand, binSensor, scans, 
                                        permissions, serverRequests, 
-                                       serverResponses, truckCommand, perm, 
-                                       selectedBin, req, scan, resp >>
+                                       serverResponses, truckCommand, verdict, 
+                                       perm, selectedBin, req, scan, resp >>
 
 ServerAwaitRequest == /\ pc[Server] = "ServerAwaitRequest"
                       /\ serverRequests /= <<>>
                       /\ req' = Head(serverRequests)
                       /\ serverRequests' = Tail(serverRequests)
                       /\ \E valid \in ValidCard(req'.user):
-                           serverResponses' = Append(serverResponses, ([user |-> req'.user, permission |-> valid]))
+                           /\ serverResponses' = Append(serverResponses, ([user |-> req'.user, permission |-> valid]))
+                           /\ verdict' = [verdict EXCEPT ![req'.user] = valid]
                       /\ pc' = [pc EXCEPT ![Server] = "ServerNextIteration"]
                       /\ UNCHANGED << outerDoorOpen, outerDoorLocked, 
                                       trapDoorOpen, ramExtended, trashInTop, 
@@ -756,8 +773,8 @@ TruckWaitRequest(self) == /\ pc[self] = "TruckWaitRequest"
                                           trapDestroyed, userTrash, binCommand, 
                                           binSensor, scans, permissions, 
                                           serverRequests, serverResponses, 
-                                          truckCommand, perm, selectedBin, req, 
-                                          scan, resp >>
+                                          truckCommand, verdict, perm, 
+                                          selectedBin, req, scan, resp >>
 
 TruckDrive(self) == /\ pc[self] = "TruckDrive"
                     /\ truckCommand' = [truckCommand EXCEPT ![self].command = "arrived"]
@@ -767,8 +784,8 @@ TruckDrive(self) == /\ pc[self] = "TruckDrive"
                                     trashCompressed, trashUncompressed, 
                                     trashCapacity, trapDestroyed, userTrash, 
                                     binCommand, binSensor, scans, permissions, 
-                                    serverRequests, serverResponses, perm, 
-                                    selectedBin, req, scan, resp >>
+                                    serverRequests, serverResponses, verdict, 
+                                    perm, selectedBin, req, scan, resp >>
 
 TruckWaitStart(self) == /\ pc[self] = "TruckWaitStart"
                         /\ truckCommand[self].command = "start_emptying"
@@ -779,8 +796,8 @@ TruckWaitStart(self) == /\ pc[self] = "TruckWaitStart"
                                         trashCapacity, trapDestroyed, 
                                         userTrash, binCommand, binSensor, 
                                         scans, permissions, serverRequests, 
-                                        serverResponses, truckCommand, perm, 
-                                        selectedBin, req, scan, resp >>
+                                        serverResponses, truckCommand, verdict, 
+                                        perm, selectedBin, req, scan, resp >>
 
 TruckEmpty(self) == /\ pc[self] = "TruckEmpty"
                     /\ binCommand[truckCommand[self].bin].command = "finished"
@@ -792,8 +809,8 @@ TruckEmpty(self) == /\ pc[self] = "TruckEmpty"
                                     trashCapacity, trapDestroyed, userTrash, 
                                     binSensor, scans, permissions, 
                                     serverRequests, serverResponses, 
-                                    truckCommand, perm, selectedBin, req, scan, 
-                                    resp >>
+                                    truckCommand, verdict, perm, selectedBin, 
+                                    req, scan, resp >>
 
 TruckAwaitEmptied(self) == /\ pc[self] = "TruckAwaitEmptied"
                            /\ binCommand[truckCommand[self].bin].command = "finished"
@@ -805,8 +822,9 @@ TruckAwaitEmptied(self) == /\ pc[self] = "TruckAwaitEmptied"
                                            trapDestroyed, userTrash, 
                                            binCommand, binSensor, scans, 
                                            permissions, serverRequests, 
-                                           serverResponses, truckCommand, perm, 
-                                           selectedBin, req, scan, resp >>
+                                           serverResponses, truckCommand, 
+                                           verdict, perm, selectedBin, req, 
+                                           scan, resp >>
 
 TruckReport(self) == /\ pc[self] = "TruckReport"
                      /\ truckCommand' = [truckCommand EXCEPT ![self].command = "emptied"]
@@ -816,8 +834,8 @@ TruckReport(self) == /\ pc[self] = "TruckReport"
                                      trashCompressed, trashUncompressed, 
                                      trashCapacity, trapDestroyed, userTrash, 
                                      binCommand, binSensor, scans, permissions, 
-                                     serverRequests, serverResponses, perm, 
-                                     selectedBin, req, scan, resp >>
+                                     serverRequests, serverResponses, verdict, 
+                                     perm, selectedBin, req, scan, resp >>
 
 truckProcess(self) == TruckWaitRequest(self) \/ TruckDrive(self)
                          \/ TruckWaitStart(self) \/ TruckEmpty(self)
@@ -843,14 +861,15 @@ ControlLoop == /\ pc[Control] = "ControlLoop"
                                ramExtended, trashInTop, trashCompressed, 
                                trashUncompressed, trashCapacity, trapDestroyed, 
                                userTrash, binCommand, binSensor, permissions, 
-                               serverResponses, perm, selectedBin, req, resp >>
+                               serverResponses, verdict, perm, selectedBin, 
+                               req, resp >>
 
 ControlAwaitServer == /\ pc[Control] = "ControlAwaitServer"
                       /\ serverResponses /= <<>>
                       /\ resp' = Head(serverResponses)
                       /\ serverResponses' = Tail(serverResponses)
                       /\ Assert(resp'.user = scan.user, 
-                                "Failure of assertion at line 323, column 9.")
+                                "Failure of assertion at line 327, column 9.")
                       /\ IF resp'.permission /\ ~BinReserved(scan.bin) /\ TrashFitsCapacity(scan.bin, MaxUserTrash)
                             THEN /\ pc' = [pc EXCEPT ![Control] = "ControlUnlock"]
                                  /\ UNCHANGED permissions
@@ -861,8 +880,8 @@ ControlAwaitServer == /\ pc[Control] = "ControlAwaitServer"
                                       trashCompressed, trashUncompressed, 
                                       trashCapacity, trapDestroyed, userTrash, 
                                       binCommand, binSensor, scans, 
-                                      serverRequests, truckCommand, perm, 
-                                      selectedBin, req, scan >>
+                                      serverRequests, truckCommand, verdict, 
+                                      perm, selectedBin, req, scan >>
 
 ControlUnlock == /\ pc[Control] = "ControlUnlock"
                  /\ binCommand[scan.bin].command = "finished"
@@ -873,8 +892,8 @@ ControlUnlock == /\ pc[Control] = "ControlUnlock"
                                  trashUncompressed, trashCapacity, 
                                  trapDestroyed, userTrash, binSensor, scans, 
                                  permissions, serverRequests, serverResponses, 
-                                 truckCommand, perm, selectedBin, req, scan, 
-                                 resp >>
+                                 truckCommand, verdict, perm, selectedBin, req, 
+                                 scan, resp >>
 
 ControlGrant == /\ pc[Control] = "ControlGrant"
                 /\ binCommand[scan.bin].command = "finished"
@@ -885,7 +904,7 @@ ControlGrant == /\ pc[Control] = "ControlGrant"
                                 trashUncompressed, trashCapacity, 
                                 trapDestroyed, userTrash, binCommand, 
                                 binSensor, scans, serverRequests, 
-                                serverResponses, truckCommand, perm, 
+                                serverResponses, truckCommand, verdict, perm, 
                                 selectedBin, req, scan, resp >>
 
 ControlAwaitClosed == /\ pc[Control] = "ControlAwaitClosed"
@@ -898,8 +917,8 @@ ControlAwaitClosed == /\ pc[Control] = "ControlAwaitClosed"
                                       trashCompressed, trashUncompressed, 
                                       trashCapacity, trapDestroyed, userTrash, 
                                       scans, permissions, serverRequests, 
-                                      serverResponses, truckCommand, perm, 
-                                      selectedBin, req, scan, resp >>
+                                      serverResponses, truckCommand, verdict, 
+                                      perm, selectedBin, req, scan, resp >>
 
 ControlOpenTrap == /\ pc[Control] = "ControlOpenTrap"
                    /\ binCommand[scan.bin].command = "finished"
@@ -911,8 +930,8 @@ ControlOpenTrap == /\ pc[Control] = "ControlOpenTrap"
                                    trashCapacity, trapDestroyed, userTrash, 
                                    binSensor, scans, permissions, 
                                    serverRequests, serverResponses, 
-                                   truckCommand, perm, selectedBin, req, scan, 
-                                   resp >>
+                                   truckCommand, verdict, perm, selectedBin, 
+                                   req, scan, resp >>
 
 ControlExtendRam == /\ pc[Control] = "ControlExtendRam"
                     /\ binCommand[scan.bin].command = "finished"
@@ -924,8 +943,8 @@ ControlExtendRam == /\ pc[Control] = "ControlExtendRam"
                                     trashCapacity, trapDestroyed, userTrash, 
                                     binSensor, scans, permissions, 
                                     serverRequests, serverResponses, 
-                                    truckCommand, perm, selectedBin, req, scan, 
-                                    resp >>
+                                    truckCommand, verdict, perm, selectedBin, 
+                                    req, scan, resp >>
 
 ControlRetractRam == /\ pc[Control] = "ControlRetractRam"
                      /\ binCommand[scan.bin].command = "finished"
@@ -937,8 +956,8 @@ ControlRetractRam == /\ pc[Control] = "ControlRetractRam"
                                      trashCapacity, trapDestroyed, userTrash, 
                                      binSensor, scans, permissions, 
                                      serverRequests, serverResponses, 
-                                     truckCommand, perm, selectedBin, req, 
-                                     scan, resp >>
+                                     truckCommand, verdict, perm, selectedBin, 
+                                     req, scan, resp >>
 
 ControlCloseTrap == /\ pc[Control] = "ControlCloseTrap"
                     /\ binCommand[scan.bin].command = "finished"
@@ -950,8 +969,8 @@ ControlCloseTrap == /\ pc[Control] = "ControlCloseTrap"
                                     trashCapacity, trapDestroyed, userTrash, 
                                     binSensor, scans, permissions, 
                                     serverRequests, serverResponses, 
-                                    truckCommand, perm, selectedBin, req, scan, 
-                                    resp >>
+                                    truckCommand, verdict, perm, selectedBin, 
+                                    req, scan, resp >>
 
 controlProcess == ControlLoop \/ ControlAwaitServer \/ ControlUnlock
                      \/ ControlGrant \/ ControlAwaitClosed
@@ -972,16 +991,20 @@ Spec == /\ Init /\ [][Next]_vars
 
 \* END TRANSLATION
 
+\* A user is in its door phase between sending "open door" and seeing the closing finished
+DoorPhase == {"UserAwaitOpenDoor", "UserDepositTrash", "UserCloseDoor", "UserAwaitClosedDoor"}
+
 \* No unauthorized user can open the outer door of any trash bin.
-\* Defined here because it refers to the process-local variables perm and selectedBin.
+\* If the outer door of bin b is open, a user is in its door phase at bin b,
+\* was granted permission, and the server accepted its card (ghost variable verdict).
+\* Defined here because it refers to pc and the process-local variables perm and selectedBin.
 AuthorizedOpenOnly ==
   \A b \in Bins : outerDoorOpen[b] =>
     \E u \in Users :
-      /\ ValidCard(u) = {TRUE}
+      /\ pc[u] \in DoorPhase
       /\ selectedBin[u] = b
       /\ perm[u].granted
-      /\ pc[u] \in {"UserAwaitOpenDoor", "UserDepositTrash",
-                    "UserCloseDoor", "UserAwaitClosedDoor"}
+      /\ verdict[u]
 
 =============================================================================
 \* Modification History
