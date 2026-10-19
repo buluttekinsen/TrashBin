@@ -5,13 +5,13 @@
     <stringAttribute key="distributedNetworkInterface" value="192.168.0.101"/>
     <intAttribute key="distributedNodesCount" value="1"/>
     <stringAttribute key="distributedTLC" value="off"/>
-    <intAttribute key="fpIndex" value="0"/>
+    <intAttribute key="fpIndex" value="71"/>
     <intAttribute key="maxHeapSize" value="25"/>
     <stringAttribute key="modelBehaviorInit" value=""/>
     <stringAttribute key="modelBehaviorNext" value=""/>
     <stringAttribute key="modelBehaviorSpec" value="Spec"/>
     <intAttribute key="modelBehaviorSpecType" value="1"/>
-    <stringAttribute key="modelBehaviorVars" value="trapDoorOpen, binSensor, serverRequests, ramExtended, trapDestroyed, userTrash, resp, pc, serverResponses, permissions, req, outerDoorLocked, scans, binCommand, scan, outerDoorOpen, truckCommand, perm, trashInTop, trashCompressed, trashUncompressed, trashCapacity, verdict"/>
+    <stringAttribute key="modelBehaviorVars" value="trapDoorOpen, binSensor, serverRequests, selectedBin, ramExtended, trapDestroyed, userTrash, resp, pc, serverResponses, permissions, req, outerDoorLocked, scans, binCommand, scan, outerDoorOpen, truckCommand, perm, trashInTop, trashCompressed, trashUncompressed, trashCapacity, verdict"/>
     <stringAttribute key="modelComments" value=""/>
     <booleanAttribute key="modelCorrectnessCheckDeadlock" value="true"/>
     <listAttribute key="modelCorrectnessInvariants">
@@ -35,9 +35,9 @@
     <listAttribute key="modelParameterConstants">
         <listEntry value="NumBins;;2;0;0"/>
         <listEntry value="NumUsers;;1;0;0"/>
-        <listEntry value="NumTrucks;;1;0;0"/>
-        <listEntry value="MaxCapacity;;3;0;0"/>
-        <listEntry value="MaxUserTrash;;2;0;0"/>
+        <listEntry value="NumTrucks;;2;0;0"/>
+        <listEntry value="MaxCapacity;;2;0;0"/>
+        <listEntry value="MaxUserTrash;;1;0;0"/>
     </listAttribute>
     <intAttribute key="modelVersion" value="20191005"/>
     <intAttribute key="numberOfWorkers" value="8"/>
