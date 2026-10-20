@@ -45,7 +45,6 @@ define
 \*****************************
 \* Helper functions
 \*****************************
-\* You are free to add your own helper functions here.
 Trash(bin) == trashCompressed[bin] + trashUncompressed[bin]
 CapacityExceeded(bin) == Trash(bin) > trashCapacity[bin]
 TrashFitsCapacity(bin, trash) == Trash(bin) + trash <= trashCapacity[bin]
@@ -103,7 +102,7 @@ MessagesOK == /\ Len(scans) <= NumUsers
               /\ Len(serverResponses) <= 1
 
 \*****************************
-\* Sanity checks (already given, feel free to use them)
+\* Sanity checks
 \*****************************
 CapacitiesRespected == \A b \in Bins:
                          /\ trashUncompressed[b] >= 0
@@ -997,7 +996,6 @@ DoorPhase == {"UserAwaitOpenDoor", "UserDepositTrash", "UserCloseDoor", "UserAwa
 \* No unauthorized user can open the outer door of any trash bin.
 \* If the outer door of bin b is open, a user is in its door phase at bin b,
 \* was granted permission, and the server accepted its card (ghost variable verdict).
-\* Defined here because it refers to pc and the process-local variables perm and selectedBin.
 AuthorizedOpenOnly ==
   \A b \in Bins : outerDoorOpen[b] =>
     \E u \in Users :
@@ -1007,4 +1005,3 @@ AuthorizedOpenOnly ==
       /\ verdict[u]
 
 =============================================================================
-\* Modification History

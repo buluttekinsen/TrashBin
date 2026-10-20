@@ -52,4 +52,3 @@ TruckOffset == UserOffset+NumUsers
 ValidCard(user) == {user # 42}
 
 =============================================================================
-\* Modification History

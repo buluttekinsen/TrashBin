@@ -37,7 +37,7 @@ variables
   serverResponses = << >>,
   \* Command for the truck
   truckCommand = [command |-> "emptied", bin |-> 1],
-  \* Ghost variable (Note 12): last verdict of the server for each user
+  \* Ghost variable: last verdict of the server for each user
   verdict = [u \in Users |-> FALSE];
 
 define
@@ -45,7 +45,6 @@ define
 \*****************************
 \* Helper functions
 \*****************************
-\* You are free to add your own helper functions here.
 Trash == trashCompressed + trashUncompressed
 CapacityExceeded == Trash > trashCapacity
 TrashFitsCapacity(trash) == Trash + trash <= trashCapacity
@@ -94,7 +93,7 @@ MessagesOK == /\ Len(scans) <= 1
               /\ Len(serverResponses) <= 1
 
 \*****************************
-\* Sanity checks (already given, feel free to use them)
+\* Sanity checks
 \*****************************
 CapacitiesRespected == /\ trashUncompressed >= 0
                        /\ trashUncompressed <= trashCapacity
@@ -954,7 +953,6 @@ DoorPhase == {"UserAwaitOpenDoor", "UserDepositTrash", "UserCloseDoor", "UserAwa
 \* An unauthorized user cannot open the outer door.
 \* If the outer door is open, a user is in its door phase, was granted permission,
 \* and the server accepted its card (ghost variable verdict).
-\* Defined here because it refers to pc and the process-local variable perm.
 AuthorizedOpenOnly ==
   outerDoorOpen =>
     \E u \in Users :
@@ -963,5 +961,3 @@ AuthorizedOpenOnly ==
       /\ verdict[u]
 
 =============================================================================
-\* Modification History
-\* Last modified Tue Oct 20 01:24:45 CEST 2026 by 20254333
